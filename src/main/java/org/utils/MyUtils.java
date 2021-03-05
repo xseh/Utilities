@@ -13,7 +13,12 @@ public class MyUtils {
 
         String str = "Hello|World|How are|you all";
 
-        List<String> stringParts = sp.splitString(str, "\\|");
+        List<String> stringParts;
+        try {
+            stringParts = sp.splitString(str, "\\|");
+        } catch (InvalidStringInputException e) {
+            e.getMessage();
+        }
 
         for (String part : stringParts) {
             System.out.println(part);
